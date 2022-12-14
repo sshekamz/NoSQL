@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-  User.findById('6399c4c005c17e3f26419e60')
+  User.findById('639a299151e871753c5c42ad')
     .then(user => {
       req.user = user;
       next();
@@ -34,7 +34,7 @@ app.use(shopRoutes);
 app.use(errorController.get404);
 
 mongoose.connect('mongodb+srv://sshekamz:Hanuman@cluster0.kt2w8os.mongodb.net/shop?retryWrites=true')
-.then(result=>{
+ .then(result=>{
   User.findOne().then(user=>{
     if(!user){
       const user=new User({
